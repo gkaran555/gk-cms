@@ -1,5 +1,4 @@
 
- 
  <h1 class="page-header">Ad Article</h1>
           
 	<ol class="breadcrumb">
@@ -15,7 +14,7 @@
 		<label>Article Title</label>
 		<input type="text" class="form-control" name="title" value="<?php echo set_value('title'); ?>" placeholder="enter article title">
 	  </div>
-	  
+	  	    
 	  <div class="form-group">
 		<label>Category</label>
 		<select class="form-control" name="category">
@@ -30,6 +29,17 @@
 		<label for="page_bady">Article Body</label>
 		<textarea class="form-control" type="text" rows="5" name="body" value="<?php echo set_value('body'); ?>"></textarea>
 	  </div>
+	  
+	  <div class="form-group">
+		<label>Images</label>
+		<select class="form-control" name="image">
+		  <option value="0">Select Image</option>
+		  <?php foreach($images as $image) : ?>
+		  <option value="<?php echo $image->id; ?>"><?php echo $image->name; ?></option>
+		  <?php endforeach; ?> 
+		</select>
+	  </div>
+	  
 	  	  	  	  
 	   <div class="form-group">
 		<label>Author</label>
@@ -70,6 +80,9 @@
 	  <button type="submit" name="submit" class="btn btn-primary btn-sm">Save</button>
 	  <a href="<?php echo base_url(); ?>index.php/admin/articles" class="btn btn-primary btn-sm">Close</a>
   </form>
+  
+  
+
 		  
 		  
 		  

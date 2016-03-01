@@ -17,7 +17,7 @@
 	  </div>
 	  
 	  <div class="form-group">
-		<label>Category</label>
+		<label>Categories</label>
 		<select class="form-control" name="category">
 		  <option value="0">Select Category</option>
 		  <?php foreach($categories as $category) : ?>
@@ -34,6 +34,21 @@
 	  <div class="form-group">
 		<label for="page_bady">Article Body</label>
 		<textarea class="form-control" type="text" rows="5" name="body"> <?php echo $article->body; ?></textarea>
+	  </div>
+	  
+	  <div class="form-group">
+		<label>Images</label>
+		<select class="form-control" name="image">
+		  <option value="0">Select Image</option>
+		  <?php foreach($images as $image) : ?>
+		   <?php if($image->id == $article->image_id) : ?>
+		    <?php $selected = 'selected' ; ?>
+		   <?php else : ?>
+		    <?php $selected = '' ; ?>
+		   <?php endif; ?>
+		  <option value="<?php echo $image->id; ?>" <?php echo $selected; ?>><?php echo $image->name; ?></option>
+		  <?php endforeach; ?> 
+		</select>
 	  </div>
 	  	  	  
 	  

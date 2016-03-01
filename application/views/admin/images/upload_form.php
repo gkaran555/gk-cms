@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,9 +66,31 @@
         </div>
 		
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-         
-		<?php $this->load->view($main_content); ?>
-		  
+		
+		<h1 class="page-header">Ad Image</h1>
+          
+		<ol class="breadcrumb">
+		  <li><a href="<?php echo base_url(); ?>index.php/admin/dashboard">dashboard</a></li>
+		  <li><a href="<?php echo base_url(); ?>index.php/admin/images">images</a></li>
+		  <li class="active">add image</li>
+		</ol>
+   
+				<?php echo $error;?>
+		 
+				<?php echo form_open_multipart('admin/upload/do_upload');?>
+				 
+				<input type="file" name="userfile" size="20" />
+				 
+				<br /><br />
+				 				
+				<button type="submit" value="upload" name="upload" class="btn btn-primary btn-sm">upload</button>
+	            <a href="<?php echo base_url(); ?>index.php/admin/images" class="btn btn-primary btn-sm">Close</a>
+				 
+				</form>
+				
+				
+				
+					  
         </div>
       </div>
     </div>

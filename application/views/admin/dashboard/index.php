@@ -4,7 +4,7 @@
         <?php echo '<p class="alert alert-dismissable alert-success">' .$this->session->flashdata('pass_login') . '</p>'; ?>
         <?php endif; ?>
 		
-          <h2 class="sub-header">Articles</h2>
+		<h2 class="sub-header">Articles</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>

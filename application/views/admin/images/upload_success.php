@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,9 +66,13 @@
         </div>
 		
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-         
-		<?php $this->load->view($main_content); ?>
-		  
+			     
+				
+		   <h3>Your file was successfully uploaded!</h3>
+		 			
+			<p><?php echo anchor('upload', 'Upload Another File!'); ?></p>
+					
+					  
         </div>
       </div>
     </div>

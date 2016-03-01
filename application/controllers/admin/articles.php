@@ -39,9 +39,9 @@ class Articles extends MY_Controller {
         
 		$data['categories'] = $this->Article_model->get_categories();
 		$data['users'] = $this->User_model->get_users();
-		//$data['groups'] = $this->User_model->get_groups();
+		$data['images'] = $this->Upload_model->get_images();
 		
-		
+						
 		if($this->form_validation->run() == FALSE){
             $data['main_content'] = 'admin/articles/add';
             $this->load->view('admin/layouts/main',$data);  
@@ -54,7 +54,9 @@ class Articles extends MY_Controller {
                 'user_id'    => $this->input->post('user'),
 				'is_published'    => $this->input->post('is_published'),
 				'in_menu'    => $this->input->post('in_menu'),
-				'order'    => $this->input->post('order')
+				'order'    => $this->input->post('order'),
+				'image_id'    => $this->input->post('image')
+				
 							
             );
 			
@@ -76,8 +78,8 @@ class Articles extends MY_Controller {
 		$this->form_validation->set_rules('category','Category','required'); 
         
 		$data['categories'] = $this->Article_model->get_categories();
-		
 		$data['users'] = $this->User_model->get_users();
+		$data['images'] = $this->Upload_model->get_images();
 		
 		$data['article'] = $this->Article_model->get_article($id);
 		
@@ -95,7 +97,8 @@ class Articles extends MY_Controller {
                 'user_id'    => $this->input->post('user'),
 				'is_published'    => $this->input->post('is_published'),
 				'in_menu'    => $this->input->post('in_menu'),
-				'order'    => $this->input->post('order')
+				'order'    => $this->input->post('order'),
+				'image_id'    => $this->input->post('image')
 				
             );
 			
@@ -140,8 +143,7 @@ class Articles extends MY_Controller {
                
     }
 	
-	
-	
+	  	
 	
 }
 

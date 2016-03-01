@@ -31,9 +31,16 @@
 
          <div class="row">
          <div class="col-lg-12">
-           <h1><?php echo $article->title; ?></h1>
-
-           <?php echo $article->body; ?>
+           			
+		    <?php foreach($images as $image) : ?>
+			<?php if($article->image_id == $image->id) : ?>
+			<img src="<?php echo base_url()?>public/img/<?php echo $image->name; ?>"/>
+			<?php endif;?>
+			<?php endforeach; ?>
+			
+			<h1><?php echo $article->title; ?></h1>
+            <?php echo $article->body; ?>
+			
          </div>
          </div>
 

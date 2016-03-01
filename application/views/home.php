@@ -29,18 +29,39 @@
         <h3 class="text-muted"><img src="<?php echo base_url()?>public/img/<?php echo $this->global_data['logo']; ?>" alt="<?php echo $this->global_data['site_title']; ?>"/></h3>
       </div>
       
-         <ul class="home-content">
+        		 
+	  <div class="table-responsive">
+		<table class="table table-striped">
 			<?php foreach ($articles as $article) : ?>
-			<li>
-			    <?php if($article->is_published == 1) : ?>
-				<h4><?php echo $article->title; ?></h4>
-				    <?php echo word_limiter($article->body, 20); ?>
-					<?php echo $article->picture; ?>
-				<p><a href="<?php echo base_url(); ?>index.php/articles/view/<?php echo $article->id; ?>">Read More</a></p>
-			    <?php endif;?>
-			</li>
-			<?php endforeach; ?>
-         </ul>
+			<?php if($article->is_published == 1) : ?>
+		  <thead>
+			<tr>
+			  <th><h4><?php echo $article->title; ?></h4></th>
+			</tr>
+		  </thead>
+		  <tbody>
+						 
+			<tr>
+			  <td><?php echo word_limiter($article->body, 20); ?>
+				  <a href="<?php echo base_url(); ?>index.php/articles/view/<?php echo $article->id; ?>">Read More</a>
+			  </td>
+			  <td>
+				<?php foreach($images as $image) : ?>
+				<?php if($article->image_id == $image->id) : ?>
+				<img src="<?php echo base_url()?>public/img/<?php echo $image->name; ?>"/>
+				<?php endif;?>
+				<?php endforeach; ?>
+				
+			  </td>
+			</tr>
+								
+			<?php endif;?>
+			<?php endforeach; ?>					   
+		  </tbody>
+		</table>
+				
+	   </div>
+		 
 
       <footer class="footer">
         <p>GK</p>
